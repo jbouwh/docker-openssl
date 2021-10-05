@@ -38,7 +38,8 @@ RUN set -x \
  && tar -xvf /tmp/openssl-${OPENSSL_VERSION}.tar.gz -C /tmp/ \
  && rm -rf /tmp/openssl-${OPENSSL_VERSION}.tar.gz \ 
  && cd /tmp/openssl-${OPENSSL_VERSION} \
- && ./Configure linux-x86_64 shared\
+ && ./config enable-ssl2 enable-ssl3 no-shared enable-weak-ssl-ciphers -DOPENSSL_TLS_SECURITY_LEVEL=0 \
+ && make depend \
  && make \
  && make test \
  && make install \
@@ -47,3 +48,4 @@ RUN set -x \
  
  ENV PATH /usr/local/ssl/bin:$PATH
  
+# && ./Configure linux-x86_64 shared\
