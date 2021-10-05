@@ -4,7 +4,7 @@
 # http://dl-cdn.alpinelinux.org/alpine/v3.8/community/x86_64/
 FROM alpine:3.8
 
-MAINTAINER Tuan Vo <vohungtuan@gmail.com>
+MAINTAINER Jan Bouwhuis <jan@jbsoft.nl>
 
 
 ####################################################
@@ -30,7 +30,7 @@ RUN set -x \
 ### Some env variables
 ### I don't know how to get the latest version of OpenSSL, like openssl-latest.tar.gz
 ### So I have to put the version here
-ENV OPENSSL_VERSION="1.0.2p"
+ENV OPENSSL_VERSION="1.0.2u"
 
 RUN set -x \
  ### BUILD OpenSSL
