@@ -46,6 +46,11 @@ RUN set -x \
  && cd .. \
  && rm -rf openssl-${OPENSSL_VERSION}
  
- ENV PATH /usr/local/ssl/bin:$PATH
+ENV PATH /usr/local/ssl/bin:$PATH
  
-# && ./Configure linux-x86_64 shared\
+RUN \
+  adduser -D -u 1000 openssl-test && \
+  mkdir /config && \
+
+WORKDIR /home/openssl-test
+USER openssl-test
